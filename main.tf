@@ -350,7 +350,7 @@ resource "null_resource" "icp-postinstall-hook" {
 resource "null_resource" "icp-worker-scaler" {
   depends_on = ["null_resource.icp-cluster", "null_resource.icp-install"]
 
-  triggers {
+  triggers = {
     workers = "${join(",", var.icp-worker)}"
   }
 
